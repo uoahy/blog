@@ -25,7 +25,7 @@ public class ArticleController {
 
     @GetMapping("/articles")
     public List<Article> getAllArticles() {
-        return articleRepository.findAll();
+        return articleRepository.findAllByOrderByCreatedAtDesc();
     }
 
     @GetMapping("/articles/{id}")
