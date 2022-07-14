@@ -19,20 +19,20 @@ public class Article extends BaseTimeEntity {
     private String title;
     private String content;
     @ManyToOne
-    private User poster;
-    @OneToMany
+    private User user;
+    @OneToMany(mappedBy = "article")
     private List<Comment> comments;
 
-    public Article(String title, String content, User poster) {
+    public Article(String title, String content, User user) {
         this.title = title;
         this.content = content;
-        this.poster = poster;
+        this.user = user;
     }
 
-    public Article(ArticleDto articleDto, User poster) {
+    public Article(ArticleDto articleDto, User user) {
         title = articleDto.getTitle();
         content = articleDto.getContent();
-        this.poster = poster;
+        this.user = user;
     }
 
     public void setArticle(ArticleDto articleDto) {

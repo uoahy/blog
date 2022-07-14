@@ -19,7 +19,7 @@ public class ArticleService {
     public Long editArticle(Long id, ArticleDto articleDto, UserDetailsImpl userDetails) {
         User user = userDetails.getUser();
         Article article = articleRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-        if (user.equals(article.getPoster())) {
+        if (user.equals(article.getUser())) {
             article.setArticle(articleDto);
             return id;
         } else {

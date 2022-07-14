@@ -1,5 +1,6 @@
 package com.example.blog.user;
 
+import com.example.blog.domain.Article;
 import com.example.blog.domain.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,8 @@ public class User {
     private Long id;
     private String nickname;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
+    private List<Article> articles;
+    @OneToMany(mappedBy = "user")
     private List<Comment> comments;
 }

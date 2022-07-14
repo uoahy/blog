@@ -46,7 +46,7 @@ public class ArticleController {
     public Long deleteArticle(@PathVariable Long id, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         User user = userDetails.getUser();
         Article article = articleRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-        if (user.equals(article.getPoster())) {
+        if (user.equals(article.getUser())) {
             articleRepository.deleteById(id);
             return id;
         } else {
