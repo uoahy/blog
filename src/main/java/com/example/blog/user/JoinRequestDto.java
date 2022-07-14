@@ -5,9 +5,9 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class UserDto {
+public class JoinRequestDto {
 
-    private Long id;
     private String nickname;
-    private String password;
+    private String password1;
+    private String password2;
 }
