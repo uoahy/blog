@@ -12,11 +12,7 @@ public class UserController {
 
     @PostMapping("/join")
     public User join(@RequestBody JoinRequestDto joinRequestDto) {
-        try {
-            return userService.join(joinRequestDto);
-        } catch (Exception e) {
-            return null;
-        }
+        return userService.join(joinRequestDto);
     }
 
     @GetMapping("/login")

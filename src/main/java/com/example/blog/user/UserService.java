@@ -15,6 +15,6 @@ public class UserService {
         // TODO: validate joinRequestDto
         String nickname = joinRequestDto.getNickname();
         String password = passwordEncoder.encode(joinRequestDto.getPassword1());
-        return userRepository.save(new User(null, nickname, password));
+        return userRepository.save(new User(null, nickname, password, null));
     }
 }

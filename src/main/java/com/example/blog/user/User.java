@@ -1,13 +1,12 @@
 package com.example.blog.user;
 
+import com.example.blog.domain.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,4 +19,6 @@ public class User {
     private Long id;
     private String nickname;
     private String password;
+    @OneToMany
+    private List<Comment> comments;
 }

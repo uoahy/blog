@@ -1,5 +1,6 @@
 package com.example.blog.dto;
 
+import com.example.blog.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -7,9 +8,7 @@ import lombok.Getter;
 @Getter
 public class ArticleDto {
 
-    private Long id;
     private String title;
     private String content;
-    private String poster;
-    private String pw;
+    private User poster;
 }
