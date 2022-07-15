@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final UserValidator userValidator;
     private final PasswordEncoder passwordEncoder;
 
     public User join(JoinRequestDto joinRequestDto) {
-        // TODO: validate joinRequestDto
+        userValidator.validate(joinRequestDto);
         String nickname = joinRequestDto.getNickname();
         String password = passwordEncoder.encode(joinRequestDto.getPassword1());
         return userRepository.save(new User(null, nickname, password, null, null));
